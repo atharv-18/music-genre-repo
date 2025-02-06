@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Genre Classification</title>
+    <title>Upload Audio or Spectrogram</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h2>Upload an Audio File</h2>
+        <h2>Upload Audio or Spectrogram</h2>
         <form action="/predict" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept=".wav" required>
-            <button type="submit">Predict Genre</button>
+            <input type="file" name="file" id="audio_file" accept=".wav, .mp3, .flac, .png, .jpg, .jpeg" required>
+            <br><br>
+            <input type="radio" name="fileType" value="audio" checked>
+            <label for="audio" style="color: white;">Audio</label>
+            <input type="radio" name="fileType" value="image">
+            <label for="image" style="color: white;">Spectrogram</label>
+            <br><br>
+            <button type="submit">Upload File</button>
         </form>
-    </div>
-    <div class="footer">
-        <p>Created by <a href="#" target="_blank">Your Name</a></p>
     </div>
 </body>
 </html>
